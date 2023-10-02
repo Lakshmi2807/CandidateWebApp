@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Tracking Sheet</title>
+<link rel="stylesheet" href="css/bootstrap.css">
+</head>
+<body class="container-fluid card" style="width:40rem;" >
+	<h2 class="bg-danger text-white text-center">Tracking Sheet</h2>
+		<form action="register" method="post">
+			<table class="table table-hover">
+				<tr>
+					<td>Candidate name</td>
+					<td><input type="text" name="name" required></td>
+				</tr>
+				<tr>
+					<td>Employee id</td>
+					<td><input type="text" name="employee_id" required></td>
+				</tr>
+				<tr>
+					<td>Skills</td>
+					<td><input type="text" name="skills" required></td>
+				</tr>
+				<tr>
+					<td>Aspirations</td>
+					<td><input type="text" name="aspiration"></td>
+				</tr>
+				<tr>
+					<td>Valid visa (if any)</td>
+					<td>
+					<input id="checkboxVisa1" type="checkbox" name="checkboxVisa" autocomplete="off" value="1"  onclick="selectOnlyCheckbox(this.id)" > Yes 
+					<input id="checkboxVisa2" type="checkbox" name="checkboxVisa" autocomplete="off" value="2" onclick="selectOnlyCheckbox(this.id)"> No 
+					</td>
+				</tr>
+				
+				<tr>
+					<td>Allocated</td>
+					<td>
+					<input id="checkboxAllocate1" type="checkbox" name="checkboxAllocate" autocomplete="off" value="1"  onclick="selectOnlyCheckbox(this.id)" > Yes 
+					<input id="checkboxAllocate2" type="checkbox" name="checkboxAllocate" autocomplete="off" value="2" onclick="selectOnlyCheckbox(this.id)"> No 
+					</td>
+				</tr>
+			</table>
+			<div style="text-align:center">
+				<input type="submit" value="Submit">
+				<input type="reset" value="Cancel">
+			</div>
+			
+		</form>
+		<script>
+			function selectOnlyCheckbox(id) {
+				var sliceFirst = id.slice(0,-1);
+				var sliceLast = id.slice(-1);
+				if(sliceLast == 1)
+					sliceLast++;
+				else
+					sliceLast--;
+   				 document.getElementById(id).checked = true;
+   	   	         document.getElementById(sliceFirst.concat(sliceLast)).checked = false;
+
+			}
+		</script>
+		</div>	
+				<h3 style="text-align:center;margin:15px;"><a href='candidate_list'  ><u>Candidate lists</u></a></h3>
+	
+</body>
+</html>
